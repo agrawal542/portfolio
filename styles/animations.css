@@ -1,0 +1,150 @@
+/*
+ * Animations — keyframes and the classes that use them.
+ * `--animate-*` tokens become Tailwind utilities (`animate-float`, ...).
+ */
+@theme {
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-drift: drift 16s ease-in-out infinite alternate;
+  --animate-gradient: gradient-pan 6s linear infinite;
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes drift {
+  to {
+    transform: translate(6%, 10%) scale(1.15);
+  }
+}
+
+@keyframes gradient-pan {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@layer components {
+  /* Blue-to-sky gradient text that slowly pans. */
+  .text-gradient {
+    background-image: linear-gradient(
+      100deg,
+      var(--color-primary),
+      var(--color-accent),
+      var(--color-primary)
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    color: transparent;
+    animation: var(--animate-gradient);
+  }
+
+  /* Blinking caret after the typewriter text. */
+  .typing-caret::after {
+    display: inline-block;
+    width: 0.55em;
+    height: 1em;
+    margin-left: 0.14em;
+    background-color: var(--color-primary);
+    content: "";
+    vertical-align: -0.13em;
+    animation: blink 1s steps(2, start) infinite;
+  }
+
+  /* Soft light that follows the cursor over a card (see hooks/useSpotlight). */
+  .spotlight {
+    position: relative;
+  }
+
+  .spotlight::before {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      20rem circle at var(--spot-x, 50%) var(--spot-y, 50%),
+      color-mix(in oklab, var(--color-primary) 14%, transparent),
+      transparent 65%
+    );
+    content: "";
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 300ms ease;
+  }
+
+  .spotlight:hover::before {
+    opacity: 1;
+  }
+}
+
+/* Theme switch: the new theme is revealed in a circle (see utils/themeTransition). */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Added: marquee and button shine ---------- */
+@theme {
+  --animate-marquee: marquee 32s linear infinite;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@layer components {
+  /* Light sweep across a button on hover. */
+  .shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shine::after {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      110deg,
+      transparent 35%,
+      color-mix(in oklab, var(--color-on-primary) 35%, transparent) 50%,
+      transparent 65%
+    );
+    content: "";
+    pointer-events: none;
+    transform: translateX(-120%);
+    transition: transform 700ms ease;
+  }
+
+  .shine:hover::after {
+    transform: translateX(120%);
+  }
+
+  /* Fades the edges of the scrolling tech strip. */
+  .marquee-mask {
+    mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  }
+
+  .marquee-mask:hover .animate-marquee {
+    animation-play-state: paused;
+  }
+}

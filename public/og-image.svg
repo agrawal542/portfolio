@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#F4F8FF"/>
+  <path d="M0 70H1200M0 140H1200M0 210H1200M0 280H1200M0 350H1200M0 420H1200M0 490H1200M0 560H1200M70 0V630M140 0V630M210 0V630M280 0V630M350 0V630M420 0V630M490 0V630M560 0V630M630 0V630M700 0V630M770 0V630M840 0V630M910 0V630M980 0V630M1050 0V630M1120 0V630" stroke="#E1E8F5" stroke-width="1"/>
+  <rect x="95" y="91" width="1010" height="448" rx="18" fill="#FFFFFF" stroke="#C5D3EA"/>
+  <circle cx="130" cy="127" r="6" fill="#1D4ED8"/>
+  <text x="155" y="133" fill="#5F6F8C" font-family="monospace" font-size="16">gautam@portfolio:~</text>
+  <text x="150" y="286" fill="#0B1F44" font-family="Arial, sans-serif" font-size="76" font-weight="700">Gautam Agrawal</text>
+  <text x="153" y="350" fill="#1D4ED8" font-family="monospace" font-size="25">Backend Software Engineer</text>
+  <text x="153" y="411" fill="#42526E" font-family="Arial, sans-serif" font-size="23">Scalable systems for fintech &amp; SaaS.</text>
+  <rect x="153" y="460" width="112" height="34" rx="17" fill="#EAF1FF"/>
+  <text x="173" y="482" fill="#1D4ED8" font-family="monospace" font-size="14">GO</text>
+  <rect x="278" y="460" width="154" height="34" rx="17" fill="#EAF1FF"/>
+  <text x="298" y="482" fill="#1D4ED8" font-family="monospace" font-size="14">MICROSERVICES</text>
+</svg>

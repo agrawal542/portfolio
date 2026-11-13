@@ -1,0 +1,91 @@
+/*
+ * Theme — the single source of truth for every colour on the site.
+ *
+ * Each token becomes a Tailwind utility, e.g. `--color-primary` gives
+ * `bg-primary`, `text-primary` and `border-primary`. Tailwind's default
+ * palette is switched off, so components can only use the colours listed here.
+ *
+ * The first block is the light theme. The second block overrides the same
+ * tokens for the dark theme. To re-skin the site, change the values here.
+ */
+
+/* ---------- Light theme (default) ---------- */
+@theme {
+  --color-*: initial;
+
+  /* Surfaces */
+  --color-background: #ffffff; /* page background */
+  --color-surface: #f5f8ff; /* tinted section bands, chips */
+  --color-card: #ffffff; /* cards and form fields */
+
+  /* Lines */
+  --color-line: #e0e8f6;
+  --color-line-strong: #c3d2ec;
+
+  /* Text */
+  --color-heading: #0a1a3f;
+  --color-body: #41506d;
+  --color-subtle: #5d6d8b;
+
+  /* Brand blue, with a sky accent used for gradients */
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-soft: #e8f0ff;
+  --color-primary-line: #b9cefb;
+  --color-on-primary: #ffffff;
+  --color-accent: #0ea5e9;
+
+  /* Feedback */
+  --color-success: #15803d;
+  --color-danger: #c81e1e;
+
+  /* Code window in the hero */
+  --color-code-bg: #0b1b3f;
+  --color-code-line: #1d3365;
+  --color-code-text: #e8effc;
+  --color-code-muted: #8ea4cc;
+  --color-code-keyword: #9db8ff;
+  --color-code-accent: #5cc8ff;
+
+  /* Shadows */
+  --shadow-card: 0 1px 2px rgb(10 26 63 / 0.04), 0 4px 16px rgb(10 26 63 / 0.05);
+  --shadow-raised: 0 2px 4px rgb(10 26 63 / 0.05), 0 18px 44px rgb(10 26 63 / 0.13);
+  --shadow-glow: 0 8px 24px rgb(37 99 235 / 0.32);
+}
+
+:root {
+  color-scheme: light;
+}
+
+/* ---------- Dark theme ---------- */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-background: #060b18;
+  --color-surface: #0a1224;
+  --color-card: #0e1830;
+
+  --color-line: #1a294a;
+  --color-line-strong: #2b3f6b;
+
+  --color-heading: #f1f5ff;
+  --color-body: #a9b8d6;
+  --color-subtle: #8595b6;
+
+  --color-primary: #6ea0ff;
+  --color-primary-hover: #8fb6ff;
+  --color-primary-soft: #11214a;
+  --color-primary-line: #27417c;
+  --color-on-primary: #06122b;
+  --color-accent: #38d0f8;
+
+  --color-success: #4ade80;
+  --color-danger: #f87171;
+
+  --color-code-bg: #0b1530;
+  --color-code-line: #1e2e56;
+
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.25);
+  --shadow-raised: 0 2px 4px rgb(0 0 0 / 0.3), 0 18px 44px rgb(0 0 0 / 0.5);
+  --shadow-glow: 0 8px 28px rgb(110 160 255 / 0.3);
+}
